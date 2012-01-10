@@ -1,0 +1,29 @@
+== PrisonerDilemma ==
+
+Goal is to provide the simplest possible Prisoner Dilemma game.
+
+Will be interactive multi-player!!
+
+
+
+== TO - DO ==
+
+
+* change display play_game based on game state
+
+* get plead guilty to update database successfully
+
+* fix things so that you see only games that belong to a certain user
+
+* figure out where/how to put the payoff matrix function
+
+* is there a better way to relate two players to a game without order?
+** how do relationships work in this situation?
+
+* find and incorporate jazzy CSS template... maybe find two or three so that I can switch back and forth for fun
+
+
+
+
+== DONE ==
+*decided to store game/player information in URL

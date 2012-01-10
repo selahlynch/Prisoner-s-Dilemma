@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prisoner's Dilemma</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id='header'>
+<h1 id='titleHeader'>Prisoner's Dilemma</h1>
+</div>
+
+<div id='content'>
+<%= yield %>
+</div>
+
+<div id='footer'>
+Created by Selah Lynch
+</div>
+
+</body>
+</html>

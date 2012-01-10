@@ -1,0 +1,11 @@
+Hello.  Which role will you be playing?<br/><br/>
+
+<% @prisoners.each do |prisoner| %>
+  <%= link_to(prisoner.name, {:action => 'choose_game', :prisoner_id => prisoner.id}) %>
+  <br/>
+<% end %>
+
+
+
+
+
