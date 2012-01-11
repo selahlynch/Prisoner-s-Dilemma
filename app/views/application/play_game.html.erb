@@ -8,7 +8,7 @@ Hello <%= @prisoner.name %>... you have been charged with <%= @game.name %><br/>
 <% elsif ! @you_went && @they_went %>
   <%= link_to('Plead Guilty',{:action => 'plead_guilty'})%><br/>
   <%= link_to('Plead Innocent',{:action => 'plead_innocent'})%><br/>
-  Hurry up!!  
+  Hurry up, your partner is waiting!!  
 <% elsif @you_went && @they_went %>
   Both of you have chosen!
 <% end %>

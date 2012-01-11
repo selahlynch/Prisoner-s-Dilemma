@@ -7,17 +7,28 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 prisoners = Prisoner.create([
-  {:id => 1, :name => 'bonnie'},
-  {:id => 2, :name => 'clyde'}, 
-  {:id => 3, :name => 'thelma'},
-  {:id => 4, :name => 'louise'}
+  {:id => 1, :name => 'Bonnie'},
+  {:id => 2, :name => 'Clyde'}, 
+  {:id => 3, :name => 'Thelma'},
+  {:id => 4, :name => 'Louise'}
 ])
 
 games = Game.create([
-  {:id => 1, :name => 'Robbing a Bank', :player1_id => 1, :player2_id =>2},
-  {:id => 2, :name => 'Shooting a Man', :player1_id => 3, :player2_id =>4, :player1_confess => true, :player2_confess => true},
-  {:id => 3, :name => 'Public Nudity', :player1_id => 1, :player2_id =>2, :player1_confess => false, :player2_confess => true},
-  {:id => 4, :name => 'Animal Cruelty', :player1_id => 3, :player2_id =>4, :player1_confess => false, :player2_confess => false}
+  {:id => 1, :name => 'Robbing a Bank'},
+  {:id => 2, :name => 'Shooting a Man'},
+  {:id => 3, :name => 'Public Nudity'},
+  {:id => 4, :name => 'Animal Cruelty'}
+])
+
+game_prisoners = GamePrisoner.create([
+  {:game_id => 1, :prisoner_id => 3, :confess => true},
+  {:game_id => 1, :prisoner_id => 4, :confess => false},
+  {:game_id => 2, :prisoner_id => 1},
+  {:game_id => 2, :prisoner_id => 2},
+  {:game_id => 3, :prisoner_id => 3},
+  {:game_id => 3, :prisoner_id => 1},
+  {:game_id => 4, :prisoner_id => 4},
+  {:game_id => 4, :prisoner_id => 2}
 ])
 
 

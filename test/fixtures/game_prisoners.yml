@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  prisoner_id: 1
+  game_id: 1
+  confess: false
+
+two:
+  id: 1
+  prisoner_id: 1
+  game_id: 1
+  confess: false
