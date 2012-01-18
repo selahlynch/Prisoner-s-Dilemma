@@ -1,0 +1,17 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="game delete">
+  <h2>Delete Game</h2>
+
+  <%= form_for(:game, :url => {:action => 'destroy', :id => @game.id}) do |f| %>
+  
+    <p>Are you sure you want to delete this game??<p>
+  
+    <p class="reference-name"><%= @game.name %></p>
+      
+    <div class="form-buttons">
+      <%= submit_tag("Destroy Game") %>
+    </div>
+    
+  <% end %>
+</div>

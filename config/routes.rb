@@ -1,5 +1,21 @@
 PrisonerDilemma::Application.routes.draw do
 
+  get "games/list"
+
+  get "games/show"
+
+  get "games/new"
+
+  get "games/create"
+
+  get "games/edit"
+
+  get "games/update"
+
+  get "games/delete"
+
+  get "games/destroy"
+
   #root :to => 'application#choose_prisoner'
 
   root :to => redirect("/choose_prisoner")

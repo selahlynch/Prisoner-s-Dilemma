@@ -1,0 +1,25 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="prisoner show">
+  <h2>Show Prisoner</h2>
+
+  <table summary="Page detail view">
+    <tr>
+      <th>ID</th>
+      <td><%= @prisoner.id %></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><%= @prisoner.name %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @prisoner.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @prisoner.updated_at %></td>
+    </tr>
+  </table>
+  
+</div>

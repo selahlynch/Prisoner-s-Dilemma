@@ -1,0 +1,34 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class="page list">
+  <h2>Games</h2>
+  
+  <%= link_to("Add New Game", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Page list">
+    <tr class="header">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th>&nbsp;</th>
+    </tr>
+    <% @games.each do |game| %>
+    <tr>
+      <td><%= game.id %></td>
+      <td><%= game.name %></td>
+      <td><%= game.created_at %></td>
+      <td><%= game.updated_at %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => game.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => game.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:action => 'delete', :id => game.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

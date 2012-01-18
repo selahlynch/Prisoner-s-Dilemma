@@ -1,0 +1,20 @@
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+<div class="prisoner new">
+  <h2>Create Prisoner</h2>
+
+  <%= form_for(:prisoner, :url => {:action => 'create'}) do |f| %>
+  
+    <table summary="Prisoner form fields">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+    </table>
+    
+    <div class="form-buttons">
+      <%= submit_tag("Create Prisoner") %>
+    </div>
+    
+  <% end %>
+</div>
