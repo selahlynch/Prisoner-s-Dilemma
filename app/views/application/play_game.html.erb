@@ -10,7 +10,9 @@ Hello <%= @prisoner.name %>... you have been charged with <%= @game.name %><br/>
   <%= link_to('Plead Innocent',{:action => 'plead_innocent'})%><br/>
   Hurry up, your partner is waiting!!  
 <% elsif @you_went && @they_went %>
-  Both of you have chosen!
+  Both of you have chosen!<br/>
+  You have been sentanced with <%= @your_sentance%> months in prison.<br/>
+  <%= @other_prisoner.name%> has been sentanced with <%= @their_sentance%> months in prison.<br/>
 <% end %>
 <br/><br/>
 <%= link_to('Refresh', {:action => 'play_game'}) %><br/>
