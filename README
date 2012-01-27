@@ -1,13 +1,39 @@
 == PrisonerDilemma ==
 
-Goal is to provide the simplest possible Prisoner Dilemma game.
-
-Will be interactive multi-player!!
+A simple implementation of the classic Prisoner's Dilemma problem
 
 
 
 == TO - DO ==
 
+*modify games views/controllers to allow the adding of prisoners
+*make sure I have good validates, and get appropriate error messages
+*pull out form and put it in a partial
+*user label tags where appropriate
+*add some user attributes, like gender, or severity of crime, use proper form helpers
+
+*have a think about CSRF and escaping of input
+
+*convert the plead guilty/non-guilty to a form rather than two links
+
+*add user authentication
+
+*separate admin from regular play
+
+
+Further study
+*study and improve with CSS
+*study and improve with jQuery
+*make a mobile version???
+
+
+
+
+
+
+
+== DONE ==
+*decided to store game/player information in URL
 
 * change display play_game based on game state
 
@@ -15,15 +41,6 @@ Will be interactive multi-player!!
 
 * fix things so that you see only games that belong to a certain user
 
-* figure out where/how to put the payoff matrix function
-
 * is there a better way to relate two players to a game without order?
 ** how do relationships work in this situation?
 
-* find and incorporate jazzy CSS template... maybe find two or three so that I can switch back and forth for fun
-
-
-
-
-== DONE ==
-*decided to store game/player information in URL
