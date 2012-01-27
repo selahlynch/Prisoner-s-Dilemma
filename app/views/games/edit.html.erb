@@ -10,6 +10,14 @@
         <th>Name</th>
         <td><%= f.text_field(:name) %></td>
       </tr>
+
+      <tr>
+        <th>Choose Prisoners<br/>(CTR+click)</th>
+        <td>
+          <%= f.select(:prisoners, @listbox_data, {:selected => @selected_prisoner_ids}, {:multiple => true, :size => @all_prisoners.count}) %>
+        </td>
+      </tr>
+      
     </table>
     
     <div class="form-buttons">

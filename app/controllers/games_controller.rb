@@ -29,11 +29,18 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @game = Game.find(params[:id])    
+    @game = Game.find(params[:id])  
+    @all_prisoners = Prisoner.all
+    @listbox_data = Prisoner.all.collect{|p| [p.name, p.id]}
+    @selected_prisoner_ids = @game.prisoners.collect{|p| p.id}
   end
 
-  def update
+  def update  
     @game = Game.find(params[:id])
+
+    #selected_pids = params[:prisoners]
+    #old_pids = @game.prisoners.collect{|p| p.id}
+
     if @game.update_attributes(params[:game]) 
       flash[:notice] = "Game updated." 
       redirect_to(:action => 'list')
