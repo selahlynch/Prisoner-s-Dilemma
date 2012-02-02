@@ -3,7 +3,9 @@
 <div class="game edit">
   <h2>Edit Game</h2>
 
-  <%= form_for('gamee', :url => {:action => 'update', :id => @gamee.id}) do |f| %>
+
+  <% #THIS FORM NEEDS TO HAVE A VARIABLE RATHER THAN A STRING!!! %>
+  <%= form_for(@game, :url => {:action => 'update', :id => @game.id}) do |f| %>
   
     <table summary="Game form fields">
       <tr>
@@ -12,9 +14,9 @@
       </tr>
 
       <tr>
-        <th>Choose Prisoners<br/>(CTR+click)</th>
+        <th>Prisoners</th>
         <td>
-          <%= f.select(:prisoners, @listbox_data, {:selected => @selected_prisoner_ids}, {:multiple => true, :size => @all_prisoners.count}) %>
+          <%= f.select(:prisoner_ids, @prisoner_select_data, {}, {:multiple => true, :size => 5}) %>
         </td>
       </tr>
       

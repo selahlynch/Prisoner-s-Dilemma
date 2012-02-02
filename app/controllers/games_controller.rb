@@ -29,26 +29,20 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @gamee = Game.find(params[:id])  
-    @all_prisoners = Prisoner.all
-    @listbox_data = Prisoner.all.collect{|p| [p.name, p.id]}
-    @selected_prisoner_ids = @gamee.prisoners.collect{|p| p.id}
+    @game = Game.find(params[:id])  
+    @prisoner_select_data = Prisoner.all.collect{|p| [p.name, p.id]}
   end
 
   def update  
     @game = Game.find(params[:id])
-
-    #selected_pids = params[:prisoners]
-    #old_pids = @game.prisoners.collect{|p| p.id}
-
-    if @game.update_attributes(params[:gamee]) 
+    
+    if @game.update_attributes(params[:game]) 
       flash[:notice] = "Game updated." 
       redirect_to(:action => 'list')
       #redirect_to(:actions => 'show', :id => @game.id, :junk = 'junk')
     else
       render 'edit'  ##just rendering template, not running controller function
     end
- 
   end
 
   def delete
