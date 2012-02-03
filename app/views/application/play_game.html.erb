@@ -1,18 +1,18 @@
 Hello <%= @prisoner.name %>... you have been charged with <%= @game.name %><br/><br/>
 
 <% if ! @you_went && ! @they_went %>
-  <%= link_to('Plead Guilty',{:action => 'plead_guilty'})%><br/>
-  <%= link_to('Plead Innocent',{:action => 'plead_innocent'})%><br/>
+  <%= link_to('Squeal on your partner',{:action => 'plead_guilty'})%><br/>
+  <%= link_to('Keep quiet',{:action => 'plead_innocent'})%><br/>
 <% elsif @you_went && ! @they_went %>
   Waiting for them.
 <% elsif ! @you_went && @they_went %>
-  <%= link_to('Plead Guilty',{:action => 'plead_guilty'})%><br/>
-  <%= link_to('Plead Innocent',{:action => 'plead_innocent'})%><br/>
+  <%= link_to('Squeal on your partner',{:action => 'plead_guilty'})%><br/>
+  <%= link_to('Keep quiet',{:action => 'plead_innocent'})%><br/>
   Hurry up, your partner is waiting!!  
 <% elsif @you_went && @they_went %>
   Both of you have chosen!<br/>
-  You have been sentanced with <%= @your_sentance%> months in prison.<br/>
-  <%= @other_prisoner.name%> has been sentanced with <%= @their_sentance%> months in prison.<br/>
+  You have been sentenced with <%= @your_sentance%> months in prison.<br/>
+  <%= @other_prisoner.name%> has been sentenced with <%= @their_sentance%> months in prison.<br/>
 <% end %>
 <br/><br/>
 <%= link_to('Refresh', {:action => 'play_game'}) %><br/>

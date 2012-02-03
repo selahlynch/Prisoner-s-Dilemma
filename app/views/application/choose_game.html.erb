@@ -5,8 +5,7 @@ Welcome <%= @prisoner.name %>.  Now please choose your game.<br/><br/>
 
 <%= link_to(game.name, {:action => "play_game", :prisoner_id => @prisoner.id, :game_id => game.id})  %>
 
-xxx<%= game.id %>
-xxx<%= game.name %>
+
 <br/>
 
 <% end %>
