@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   def new
     #@game = Game.new(:name => "Some Name")  ##this is not actually necessary
     @game = Game.new
+    @prisoner_select_data = Prisoner.all.collect{|p| [p.name, p.id]}
   end
 
   def create

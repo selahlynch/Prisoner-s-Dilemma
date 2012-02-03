@@ -10,8 +10,13 @@
         <th>Name</th>
         <td><%= f.text_field(:name) %></td>
       </tr>
+      <tr>
+        <th>Prisoners<br/>ctrl + click</th>
+        <td>
+          <%= f.select(:prisoner_ids, @prisoner_select_data, {}, {:multiple => true, :size => 5}) %>
+        </td>
+      </tr>
     </table>
-    
     <div class="form-buttons">
       <%= submit_tag("Create Game") %>
     </div>
