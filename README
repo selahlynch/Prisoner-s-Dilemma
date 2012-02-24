@@ -6,6 +6,18 @@ A simple implementation of the classic Prisoner's Dilemma problem
 
 == TO - DO ==
 
+*authentication
+**set up an access controller
+**set up a virtual attribute, "password"
+**set everyone's password to "test" but with different salt
+**set up some login views
+**put filters in appropriate places
+**add password to the edit and create prisoner forms
+
+
+
+*BUG - when submitting three names it doesn't complain :(
+
 *modify games views/controllers to allow the adding of prisoners
 *make sure I have good validates, and get appropriate error messages
 *pull out form and put it in a partial
@@ -32,7 +44,23 @@ Further study
 
 
 
-== DONE ==
+
+
+
+
+
+
+
+== DONE (sorted by date in descending order) ==
+
+**added attribute protection
+**set up some convenient salting and hashing functions
+
+**migrate Users to have fields necessary for user authentication, put in separate migration
+
+*Add links "modify pris" and "modify games" so you can go anywhere
+*Feb 23 2012
+
 *decided to store game/player information in URL
 
 * change display play_game based on game state
