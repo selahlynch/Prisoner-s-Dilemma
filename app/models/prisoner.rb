@@ -9,7 +9,8 @@ class Prisoner < ActiveRecord::Base
   attr_protected :encrypted_password, :salt
   #attributes that we DONT EVER want to update using a FORM
 
-  validates :password, :length => {:in => 8..25, :on => :create}  
+  validates :password, :length => {:in => 4..25, :on => :create}  
+  ##would a validates_length_of fix the silent error due to length issue???
   
   attr_accessor :password
   #not stored in database, but available as part of object
@@ -23,6 +24,19 @@ class Prisoner < ActiveRecord::Base
     games.collect{|g| g.id}.include? game_id
   end
 
+
+  def self.authenticate(username="", password="")
+    thispris = Prisoner.find_by_name(username)
+    if thispris && thispris.password_match?(password)
+      return thispris
+    else
+      return false
+    end
+  end
+  
+  def password_match?(password="")
+    encrypted_password == Prisoner.hash_with_salt(password, salt)
+  end
 
   def self.make_salt(seed="")
     ##pretty much a random number

@@ -13,6 +13,7 @@ A simple implementation of the classic Prisoner's Dilemma problem
 **put filters in appropriate places
 ** add password to the edit and create prisoner forms
 
+*more descriptive output when password is too short... now it is very confusing... silent error
 
 
 *BUG - when submitting three names it doesn't complain :(
