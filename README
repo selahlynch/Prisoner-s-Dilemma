@@ -8,11 +8,10 @@ A simple implementation of the classic Prisoner's Dilemma problem
 
 *authentication
 **set up an access controller
-**set up a virtual attribute, "password"
 **set everyone's password to "test" but with different salt
 **set up some login views
 **put filters in appropriate places
-**add password to the edit and create prisoner forms
+** add password to the edit and create prisoner forms
 
 
 
@@ -52,6 +51,7 @@ Further study
 
 
 == DONE (sorted by date in descending order) ==
+**set up a virtual attribute, "password"
 
 **added attribute protection
 **set up some convenient salting and hashing functions
