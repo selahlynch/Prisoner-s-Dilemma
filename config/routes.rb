@@ -1,24 +1,11 @@
 PrisonerDilemma::Application.routes.draw do
 
-  get "games/list"
-
-  get "games/show"
-
-  get "games/new"
-
-  get "games/create"
-
-  get "games/edit"
-
-  get "games/update"
-
-  get "games/delete"
-
-  get "games/destroy"
-
   #root :to => 'application#choose_prisoner'
 
-  root :to => redirect("/choose_prisoner")
+  root :to => redirect("/welcome")
+
+  match 'welcome', :to => 'access#welcome'
+
 
   match '/choose_prisoner' => 'application#choose_prisoner' 
   match '/choose_game/:prisoner_id' => 'application#choose_game'

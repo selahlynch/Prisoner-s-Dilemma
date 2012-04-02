@@ -1,4 +1,8 @@
 class GamesController < ApplicationController
+
+  before_filter :confirm_logged_in
+  before_filter :confirm_admin
+
   def new
     #@game = Game.new(:name => "Some Name")  ##this is not actually necessary
     @game = Game.new

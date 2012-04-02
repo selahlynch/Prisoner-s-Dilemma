@@ -9,7 +9,7 @@ class Prisoner < ActiveRecord::Base
   attr_protected :encrypted_password, :salt
   #attributes that we DONT EVER want to update using a FORM
 
-  validates :password, :length => {:in => 4..25, :on => :create}  
+  validates :password, :length => {:in => 4..25, :on => :create}, :confirmation => true 
   ##would a validates_length_of fix the silent error due to length issue???
   
   attr_accessor :password

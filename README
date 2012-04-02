@@ -6,31 +6,31 @@ A simple implementation of the classic Prisoner's Dilemma problem
 
 == TO - DO ==
 
-*authentication
-**set up an access controller
-**set everyone's password to "test" but with different salt
-**set up some login views
-**put filters in appropriate places
-** add password to the edit and create prisoner forms
 
-*more descriptive output when password is too short... now it is very confusing... silent error
+*have a good think about the two approaches of play
+*convert the plead guilty/non-guilty to a form rather than two links
 
+*separate admin from regular play
+
+*try to think abotu ways of breaking authentiation
+**try to paste in URL's
+**mess with session variables...try out tamper data
 
 *BUG - when submitting three names it doesn't complain :(
 
-*modify games views/controllers to allow the adding of prisoners
-*make sure I have good validates, and get appropriate error messages
-*pull out form and put it in a partial
-*user label tags where appropriate
-*add some user attributes, like gender, or severity of crime, use proper form helpers
+*use label tags where appropriate
 
 *have a think about CSRF and escaping of input
 
-*convert the plead guilty/non-guilty to a form rather than two links
+*make prisoner list and game list sortable...jquery???
 
-*add user authentication
+*allow player to revise their decision as long as the other player hasn't gone
 
-*separate admin from regular play
+*have a think about real time play and how to improve....not require refreshing every few seconds
+
+
+
+
 
 
 Further study
@@ -52,7 +52,20 @@ Further study
 
 
 == DONE (sorted by date in descending order) ==
+
+
+*modify games views/controllers to allow the adding of prisoners
+*create is_admin attribute for prisoner
+
+*authentication
+**add password to the edit and create prisoner forms
+**set up an access controller
+**set everyone's password to "test" but with different salt
+**set up some login views
+**put filters in appropriate places
+March 28th
 **set up a virtual attribute, "password"
+*more descriptive output when password is too short... now it is very confusing... silent error
 
 **added attribute protection
 **set up some convenient salting and hashing functions

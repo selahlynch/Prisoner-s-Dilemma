@@ -13,16 +13,14 @@
     <tr class="header">
       <th>ID</th>
       <th>Name</th>
-      <th>Created</th>
-      <th>Updated</th>
+      <th>Is Admin</th>
       <th>&nbsp;</th>
     </tr>
     <% @prisoners.each do |prisoner| %>
     <tr>
       <td><%= prisoner.id %></td>
       <td><%= prisoner.name %></td>
-      <td><%= prisoner.created_at %></td>
-      <td><%= prisoner.updated_at %></td>
+      <td><%= prisoner.is_admin %></td>
       <td class="actions">
         <%= link_to("Show", {:action => 'show', :id => prisoner.id}, :class => 'action show') %>
         <%= link_to("Edit", {:action => 'edit', :id => prisoner.id}, :class => 'action edit') %>

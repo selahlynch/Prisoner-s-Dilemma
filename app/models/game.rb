@@ -19,7 +19,6 @@ class Game < ActiveRecord::Base
   end
 
 ##think about situations where someone updates using game.prisoners.create()
-
     
   after_save :assign_prisoners
 

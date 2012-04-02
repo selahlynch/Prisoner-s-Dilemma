@@ -5,13 +5,8 @@
 
   <%= form_for(:prisoner, :url => {:action => 'update', :id => @prisoner.id}) do |f| %>
   
-    <table summary="Prisoner form fields">
-      <tr>
-        <th>Name</th>
-        <td><%= f.text_field(:name) %></td>
-      </tr>
-    </table>
-    
+    <%= render(:partial => 'form', :locals => {:f => f}) %>
+       
     <div class="form-buttons">
       <%= submit_tag("Update Prisoner") %>
     </div>
