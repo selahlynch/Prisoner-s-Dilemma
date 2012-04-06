@@ -39,11 +39,22 @@ class PrisonersController < ApplicationController
 
   def update
     @prisoner = Prisoner.find(params[:id])
-    if @prisoner.update_attributes(params[:prisoner]) 
-      flash[:notice] = "Prisoner updated." 
-      redirect_to(:action => 'list')
-      #redirect_to(:actions => 'show', :id => @prisoner.id, :junk = 'junk')
+
+    passwords_entered = (!params[:prisoner][:password].blank?) && (!params[:prisoner][:password_confirmation].blank?)
+
+    if passwords_entered
+      values_for_update = params[:prisoner]
     else
+      @prisoner.no_password_update = true
+      values_for_update = params[:prisoner].except(:password, :password_confirmation)
+    end
+
+    if @prisoner.update_attributes(values_for_update) 
+      flash[:notice] = "Prisoner updated."
+      redirect_to(:action => 'list')
+    else
+      flash[:notice] = @prisoner.errors.full_messages.join("\n")
+      print  @prisoner.errors.inspect
       render 'edit'  ##just rendering template, not running controller function
     end
  

@@ -21,6 +21,8 @@
   <div id='content'>
     <%= yield %>
     <br/>
+    <%= link_to("Main Menu", :controller => 'access', :action => 'welcome') %>
+    &nbsp;&nbsp;&nbsp;
     <%= link_to("Logout", :controller => 'access', :action => 'logout') %>
   </div>
 

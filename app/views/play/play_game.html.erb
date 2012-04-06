@@ -1,19 +1,34 @@
 Hello <%= @prisoner.name %>... you have been charged with <%= @game.name %><br/><br/>
 
-<% if ! @you_went && ! @they_went %>
-  <%= link_to('Squeal on your partner',{:action => 'plead_guilty'})%><br/>
-  <%= link_to('Keep quiet',{:action => 'plead_innocent'})%><br/>
-<% elsif @you_went && ! @they_went %>
+
+
+<% if @you_went && ! @they_went %>
   Waiting for them.
-<% elsif ! @you_went && @they_went %>
-  <%= link_to('Squeal on your partner',{:action => 'plead_guilty'})%><br/>
-  <%= link_to('Keep quiet',{:action => 'plead_innocent'})%><br/>
-  Hurry up, your partner is waiting!!  
+
+
 <% elsif @you_went && @they_went %>
   Both of you have chosen!<br/>
   You have been sentenced with <%= @your_sentance%> months in prison.<br/>
   <%= @other_prisoner.name%> has been sentenced with <%= @their_sentance%> months in prison.<br/>
+
+
+<% elsif !@you_went %>
+
+  <%= form_tag({:controller => 'play', :action => 'plead'}) do %>
+    <%= radio_button_tag(:confess, "true") %>
+    <%= label_tag(:confess_true, "Squeal on your partner") %>
+    <br/>
+    <%= radio_button_tag(:confess, "false") %>
+    <%= label_tag(:confess_false, "Keep quiet") %>
+    <br/><br/>
+    <%= submit_tag("Enter Your Plea")%>
+  <% end %>
+
+  <%if @they_went%> Hurry up, your partner is waiting!! <%end%>
+
 <% end %>
+
+
 <br/><br/>
 <%= link_to('Refresh', {:action => 'play_game'}) %><br/>
 <%= link_to('Choose Different Game', {:action => 'choose_game'}) %>

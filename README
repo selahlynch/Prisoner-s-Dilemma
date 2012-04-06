@@ -7,16 +7,22 @@ A simple implementation of the classic Prisoner's Dilemma problem
 == TO - DO ==
 
 
-*have a good think about the two approaches of play
-*convert the plead guilty/non-guilty to a form rather than two links
 
-*separate admin from regular play
+*make sure a person can only get to their allowed games
 
-*try to think abotu ways of breaking authentiation
-**try to paste in URL's
-**mess with session variables...try out tamper data
+*set up a persistant login
+  *allow someone to link from spike and play as logged in student
 
 *BUG - when submitting three names it doesn't complain :(
+
+
+*email notifications when your partner has gone
+*add email address to prisoner
+*add new user signup form
+
+*connect to LLGroup so that any wharton person can be a prisoner
+
+*make create/join new game options for users
 
 *use label tags where appropriate
 
@@ -28,6 +34,7 @@ A simple implementation of the classic Prisoner's Dilemma problem
 
 *have a think about real time play and how to improve....not require refreshing every few seconds
 
+*why doesn't it complain when :on => :save is specified for prisoner password validations
 
 
 
@@ -52,7 +59,15 @@ Further study
 
 
 == DONE (sorted by date in descending order) ==
+*take prisoner out of URL so it can't be tampered with
 
+*finish convert the plead guilty/non-guilty to form rather than links
+
+*complain when someone sets a password to less than the password limit!!
+
+*make the reset of a password optional when editing a prisoner
+
+*separate admin from regular play
 
 *modify games views/controllers to allow the adding of prisoners
 *create is_admin attribute for prisoner

@@ -7,13 +7,10 @@ PrisonerDilemma::Application.routes.draw do
   match 'welcome', :to => 'access#welcome'
 
 
-  match '/choose_prisoner' => 'application#choose_prisoner' 
-  match '/choose_game/:prisoner_id' => 'application#choose_game'
-  match '/play_game/:prisoner_id/:game_id' => 'application#play_game'
-  match '/plead_guilty/:prisoner_id/:game_id' => 'application#plead_guilty'
-  match '/plead_innocent/:prisoner_id/:game_id' => 'application#plead_innocent'
+  match '/choose_prisoner' => 'play#choose_prisoner' 
+  match '/choose_game' => 'play#choose_game'
+  match '/play_game(/:game_id)' => 'play#play_game'
 
-  #match '/choose_game', :to => 'application#choose_game'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

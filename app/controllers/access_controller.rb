@@ -1,8 +1,9 @@
 class AccessController < ApplicationController
 
+  before_filter :confirm_logged_in, :only => [:index, :welcome]
+
   layout 'admin'
 
-  before_filter :confirm_logged_in, :only => [:index, :welcome]
 
   def index
     welcome
@@ -10,9 +11,9 @@ class AccessController < ApplicationController
   end
 
   def welcome
-    prisoner = Prisoner.find(session[:user_id])
+    prisoner = Prisoner.find(session[:prisoner_id])
     if ! prisoner.is_admin
-      redirect_to(:controller=>'application', :action=>'choose_game')
+      redirect_to(:controller=>'play', :action=>'choose_game')
     end
     # menu with links
   end
@@ -24,7 +25,7 @@ class AccessController < ApplicationController
   def attempt_login
     authorized_user=Prisoner.authenticate(params[:name], params[:pwd])
     if authorized_user
-      session[:user_id] = authorized_user.id
+      session[:prisoner_id] = authorized_user.id
       session[:username] = authorized_user.name
       flash[:notice] = "You are now logged in."
       redirect_to(:action => 'welcome')
@@ -35,7 +36,7 @@ class AccessController < ApplicationController
   end
 
   def logout
-      session[:user_id] = nil
+      session[:prisoner_id] = nil
       session[:username] = nil
       flash[:notice] = "You have been logged out."
       redirect_to(:action => "login")

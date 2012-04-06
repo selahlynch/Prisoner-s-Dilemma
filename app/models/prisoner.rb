@@ -9,18 +9,18 @@ class Prisoner < ActiveRecord::Base
   attr_protected :encrypted_password, :salt
   #attributes that we DONT EVER want to update using a FORM
 
-  validates :password, :length => {:in => 4..25, :on => :create}, :confirmation => true 
-  ##would a validates_length_of fix the silent error due to length issue???
-  
-  attr_accessor :password
+  validates :password, :length => {:in => 4..25, :on => :create, :on => :update}, :confirmation => true, :unless => :no_password_update? 
+  validates :password_confirmation, :presence => true, :unless => :no_password_update?
+    
   #not stored in database, but available as part of object
+  attr_accessor :password
+  attr_accessor :no_password_update
   
   before_save :create_hashed_password
-
   after_save :clear_password
   
 
-  def is_in_game(game_id)
+  def is_in_game?(game_id)
     games.collect{|g| g.id}.include? game_id
   end
 
@@ -58,7 +58,13 @@ class Prisoner < ActiveRecord::Base
 
   def clear_password
     self.password = nil
+    self.password_confirmation = nil
   end  
+  
+  def no_password_update?
+    no_password_update
+  end
+  
 end
 
 

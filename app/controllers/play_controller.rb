@@ -1,28 +1,30 @@
 class PlayController < ApplicationController
 
   before_filter :confirm_logged_in
+  before_filter :confirm_game_access, :only => [:play_game, :plead]
 
-  def choose_prisoner
-    @prisoners = Prisoner.all
-  end  
-  
+
   def choose_game
-    params[:prisoner_id] = session[:user_id]
-    prisoner_id = session[:user_id]
+    prisoner_id = session[:prisoner_id]
     @prisoner = Prisoner.find(prisoner_id)
     @games = @prisoner.games  
   end
+
   
   def play_game
-    prisoner_id = params[:prisoner_id]
-    game_id = params[:game_id]
+    
+    if(params[:game_id])
+      session[:game_id] = params[:game_id]
+    end
+
+    prisoner_id = session[:prisoner_id]
+    game_id = session[:game_id]
     @prisoner = Prisoner.find(prisoner_id)
     @game = Game.find(game_id)
 
     ##assuming two prisoners already in this game ##is this safe??
     @other_prisoner = nil
     @game.prisoners.each do |thispris| 
-#    puts "TESTING - thispris.id=" + thispris.id.class.to_s + ' prisoner_id=' + prisoner_id.class.to_s + " - DONE TESTING"
       if thispris.id.to_i != prisoner_id.to_i  ##those to_i's are important
         @other_prisoner = thispris
       end
@@ -39,30 +41,21 @@ class PlayController < ApplicationController
     
   end
 
-  def plead_guilty
-    prisoner_id = params[:prisoner_id]
-    game_id = params[:game_id]
+
+  def plead
+    confirm_game_access
+
+    prisoner_id = session[:prisoner_id]
+    game_id = session[:game_id]
 
     gp = GamePrisoner.where(:prisoner_id => prisoner_id, :game_id => game_id).first
-    gp.confess = TRUE
+    gp.confess = params[:confess]
     gp.save!
 
     redirect_to(:action => 'play_game', :message => 'plead_guilty')
-  end
- 
- 
- 
-  def plead_innocent
-    prisoner_id = params[:prisoner_id]
-    game_id = params[:game_id]
-
-    gp = GamePrisoner.where(:prisoner_id => prisoner_id, :game_id => game_id).first
-    gp.confess = FALSE
-    gp.save!
-   
-   redirect_to(:action => 'play_game', :message => 'plead_innocent')
-  end 
+  end  
   
+  private
   
   def sentance(you_squeal, they_squeal)
     if you_squeal && they_squeal
@@ -79,6 +72,7 @@ class PlayController < ApplicationController
       @their_sentance = 0
     end  
   end
+  
   
 end
 
