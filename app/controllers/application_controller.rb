@@ -4,11 +4,13 @@ class ApplicationController < ActionController::Base
   protected
     
   def confirm_logged_in
-    unless session[:prisoner_id]
+    unless cookies[:auth_token]
       flash[:notice] = "Please log in."
       redirect_to(:controller => 'access', :action => 'login')
       return false
     else
+      session[:prisoner_id] = Prisoner.find_by_encrypted_password(cookies[:auth_token]).id
+      session[:username] = Prisoner.find_by_encrypted_password(cookies[:auth_token]).name
       return true
     end
   end
@@ -47,5 +49,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+
+  def current_user
+    @current_user ||= Prisoner.find_by_encrypted_password(cookies[:auth_token]) if cookies[:auth_token]
+  end
+  helper_method :current_user
   
 end

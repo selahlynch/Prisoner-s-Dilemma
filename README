@@ -3,18 +3,15 @@
 A simple implementation of the classic Prisoner's Dilemma problem
 
 
-
 == TO - DO ==
 
-
-
-*make sure a person can only get to their allowed games
-
-*set up a persistant login
-  *allow someone to link from spike and play as logged in student
+*confirm that persistant login works and makes sense
+  **then commit it
+  
+  
+*allow someone to link from spike and play as logged in student
 
 *BUG - when submitting three names it doesn't complain :(
-
 
 *email notifications when your partner has gone
 *add email address to prisoner
@@ -59,6 +56,9 @@ Further study
 
 
 == DONE (sorted by date in descending order) ==
+
+*make sure a person can only get to their allowed games
+
 *take prisoner out of URL so it can't be tampered with
 
 *finish convert the plead guilty/non-guilty to form rather than links
