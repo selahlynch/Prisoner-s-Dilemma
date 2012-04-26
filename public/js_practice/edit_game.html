@@ -1,0 +1,37 @@
+<div class="game edit">
+  <h2>Edit Game</h2>
+
+
+  <form accept-charset="UTF-8" action="/games/update/2" class="edit_game" id="edit_game_2" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="put" /><input name="authenticity_token" type="hidden" value="iVgtJfeRB60bvLJOixNSpf78Dbk9tgyKVs3qSUpWOXY=" /></div>
+  
+    <table summary="Game form fields">
+      <tr>
+        <th>Name</th>
+        <td><input id="game_name" name="game[name]" size="30" type="text" value="Shooting a Man" /></td>
+      </tr>
+
+      <tr>
+        <th>Prisoners<br/>ctrl + click</th>
+        <td>
+          <select id="game_prisoner_ids" multiple="multiple" name="game[prisoner_ids][]" size="5">
+<option value="1" selected="selected">Bonnie</option>
+<option value="2" selected="selected">clyde</option>
+<option value="3">Thelma</option>
+<option value="12">selahlynch</option>
+<option value="13">daniel</option>
+<option value="14">Sally</option>
+<option value="16">Bobby</option>
+<option value="17">selah</option></select>
+        </td>
+      </tr>
+      
+    </table>
+    
+    <div class="form-buttons">
+      <input name="commit" type="submit" value="Update Game" />
+    </div>
+    
+</form></div>
+
+
+

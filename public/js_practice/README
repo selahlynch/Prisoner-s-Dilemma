@@ -1,0 +1,37 @@
+JavaScript training project
+
+
+TODO
+
+*discard changes warning pop-up
+
+*get prisoner list from Rails app rather than from static JSON file
+
+
+
+*rewrite the whole thing to use templates
+
+
+
+
+
+
+
+
+DONE
+
+*send code to Jamie asking for feedback and for advice on how to proceed
+
+
+*refresh game name when a game has been updated
+**take it manually and update the name in list
+
+*only allow one game to be open at a time
+*hide/remove form upon successful submission of update
+
+
+
+
+
+
+

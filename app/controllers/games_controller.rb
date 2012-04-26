@@ -1,7 +1,9 @@
 class GamesController < ApplicationController
 
-  before_filter :confirm_logged_in
-  before_filter :confirm_admin
+
+  ##commented for api calling
+  #before_filter :confirm_logged_in
+  #before_filter :confirm_admin
 
   def new
     #@game = Game.new(:name => "Some Name")  ##this is not actually necessary
@@ -27,6 +29,16 @@ class GamesController < ApplicationController
   def list
     @games = Game.all
     #@games = Game.order("games.name ASC")
+ 
+    if params[:format] == 'json'
+      render :json => @games
+    end
+ 
+    #respond_to do |format|
+    #  format.html { render 'list'}
+    #  format.json { render json: @games }
+    #end
+ 
   end
 
   def show
@@ -43,8 +55,12 @@ class GamesController < ApplicationController
     
     if @game.update_attributes(params[:game]) 
       flash[:notice] = "Game updated." 
-      redirect_to(:action => 'list')
-      #redirect_to(:actions => 'show', :id => @game.id, :junk = 'junk')
+
+
+      ##switched temoporatrily for JS
+      #redirect_to(:action => 'list')
+      render :text => "Game updated."
+
     else
       render 'edit'  ##just rendering template, not running controller function
     end

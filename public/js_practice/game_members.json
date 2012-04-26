@@ -1,0 +1,6 @@
+[
+{"id":3, "name":"bob", "is_selected":""},
+{"id":4, "name":"sally", "is_selected":"selected"},
+{"id":7, "name":"clyde", "is_selected":""},
+{"id":8, "name":"bonnie", "is_selected":"selected"}
+]
