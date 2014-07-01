@@ -1,8 +1,3 @@
-== PrisonerDilemma ==
-
-A simple implementation of the classic Prisoner's Dilemma problem
-
-
 == TO - DO ==
 
 *confirm that persistant login works and makes sense
